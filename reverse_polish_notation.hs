@@ -1,9 +1,9 @@
 
-
+-- main function to evaluate Reverse polish notation
 evalRPN :: [String] -> String
 evalRPN = head . foldl changeAcc [] 
 
-
+-- Determines whether string is operator or not.
 isOperator :: String -> Bool
 isOperator x
 	   | x == "-" = True
@@ -12,6 +12,7 @@ isOperator x
 	   | otherwise = False
 
 
+-- Perform operation based on operator
 performOp :: String -> Int -> Int -> Int
 performOp op x y
 	   | op == "-" = x - y
@@ -19,6 +20,8 @@ performOp op x y
 	   | op == "+" = x + y
 
 
+-- solves polish notation by repeatedly performing reduce operation on data.
+-- Lastly only one element remains.
 changeAcc :: [String] -> String -> [String]
 changeAcc acc new
 	      | length acc == 0 = [new]

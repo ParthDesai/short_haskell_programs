@@ -1,5 +1,4 @@
 --This function calculate shortest path based on the Example format described in "Learn you haskell for great good" 
-
 findShortestPath :: [(Int,Int,Int)] -> [Int]
 findShortestPath xs = snd $ foldl evalPath ((0,0,0),[]) xs
 
